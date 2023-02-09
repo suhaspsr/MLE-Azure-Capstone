@@ -96,7 +96,7 @@ Sampling methods for parameters of the model. We can to do random sampling, grid
 
 For this project we are choosing Regularization value and maximum number of iterations for LR model. 
 ```
-parameter = "C": choice(0.01, 0.1, 0.1, 1, 10), "max_iter": choice(25, 50, 100, 200, 500), "solver": choice('lbfgs', 'liblinear', 'newton-cg', 'sag', 'saga')
+parameter = "C": 0.01, 0.1, 0.1, 1, 10, "max_iter": 25, 50, 100, 200, 500, "solver": 'lbfgs', 'liblinear', 'newton-cg', 'sag', 'saga'
 ```
 We are using RandomParameterSampling because its simpler and computation cost is small compared to other methods.
 
