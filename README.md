@@ -21,11 +21,11 @@ This dataset is interesting because there is a good mix of attributes -- continu
 
 Attribute Information:
 
-A1: b, a.
-A2: continuous.
-A3: continuous.
-A4: u, y, l, t.
-A5: g, p, gg.
+1. A1: b, a.
+2. A2: continuous.
+3. A3: continuous.
+4. A4: u, y, l, t.
+5. A5: g, p, gg.
 A6: c, d, cc, i, j, k, m, r, q, w, x, e, aa, ff.
 A7: v, h, bb, j, n, z, dd, ff, o.
 A8: continuous.
