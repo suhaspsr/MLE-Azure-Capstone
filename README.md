@@ -145,7 +145,7 @@ Once I had completed my testing I proceeded to delete the service.
 *Figure 13: AutoML Deployment Deletion*
 ![automl-service_deletion](Screenshots/Fig8.png)
 
-##Future Model Improvements
+## Future Model Improvements
 
 To improve the future models, We could identify predictions that has been wrongly classified by the best model and find pattrens and feature mainly contributing to that and do feature engineering to fix it.
 
