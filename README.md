@@ -129,20 +129,22 @@ I used the code below to deploy the model:
 *Figure 10: AutoML Model Deployment*
 ![automl-deployment_success](Screenshots/Fig5.png)
 
+*Figure 11: AutoML Model Being Active*
+![automl-model-active](Screenshots/Fig15.png)
 
 **Python**: 
 I POST two JSONs payload to the service endpoint.
 
-*Figure 11: AutoML Python Interaction*
+*Figure 13: AutoML Python Interaction*
 ![automl-deployment_test_python](Screenshots/Fig6.png)
 ![automl-deployment_test_python](Screenshots/Fig7.png)
 
-*Figure 12: AutoML Deployment Logs*
+*Figure 14: AutoML Deployment Logs*
 ![automl-deployment_logs](Screenshots/Fig8.png)
 
 Once I had completed my testing I proceeded to delete the service.
 
-*Figure 13: AutoML Deployment Deletion*
+*Figure 15: AutoML Deployment Deletion*
 ![automl-service_deletion](Screenshots/Fig8.png)
 
 ## Future Model Improvements
