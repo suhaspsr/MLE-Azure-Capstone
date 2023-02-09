@@ -95,8 +95,6 @@ case I have simply used upsampling but I could also leverage techniques such as 
 *Figure 5: AutoML Model RunDetails*
 ![automl-run_details](Screenshots/Fig14.png)
 
-*Figure 6: AutoML Model Runs*
-![automl-details_1](Screenshots/Fig6.png)
 
 ## Hyperparameter Tuning
 
