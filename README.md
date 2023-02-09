@@ -92,14 +92,17 @@ smaller values specify stronger regularization.
 * *max_iter*: Maximum number of iterations taken for the solvers to converge.
 * *solver*: Algorithm to use in the optimization problem.
 
- 
-I used a RandomParameterSampling instead of an exhaustive GridSearch to reduce compute resources and time. This approach 
-gives close to as good hyperparameters as a GridSearch with considerably less resources and time consumed. 
+Sampling methods for parameters of the model. We can to do random sampling, grid search or use Bayesian sampling. Choose the parameters which you want to tune for depending on the model.
 
-I used a BanditPolicy and set the evaluation_interval to 2 and the slack_factor to 0.1. This policy evaluates the primary 
-metric every 2 iteration and if the value falls outside top 10% of the primary metric then the training process will stop. 
-This saves time continuing to evaluate hyperparameters that don't show promise of improving our target metric. It prevents 
-experiments from running for a long time and using up resources.
+For this project we are choosing Regularization value and maximum number of iterations for LR model. 
+```
+parameter = "C": choice(0.01, 0.1, 0.1, 1, 10), "max_iter": choice(25, 50, 100, 200, 500), "solver": choice('lbfgs', 'liblinear', 'newton-cg', 'sag', 'saga')
+```
+We are using RandomParameterSampling because its simpler and computation cost is small compared to other methods.
+
+We need to use a stopping criterion for sampling methods to automatically terminate poorly performing jobs to be computationally efficient.
+
+We are using BanditPolicy as our stopping criteria with evaluation interval at 2 and slack factor equals 0.1. The slack will compare the current run with the best performed run to be in a minimum threshold and determines whether to terminate or not.
 
 I chose the primary metric as Accuracy and to maximize it as part of the Hyperdrive run. 
 
@@ -119,6 +122,7 @@ The best performing Logistic Regression Model came in with an accuracy of 83.9% 
 
 ## Model Deployment
 
+The AutoML VotingEnsemble method has better accuracy at 90.23% compared to hyperparameter tunned Logistic Regression model with 84%. AutoML has 6% better performance than the tunned LR model. 
 As the AutoML classification model out performed tunned Logistical Regression model, I proceeded to deploy this model in Azure.
 I obtained the scoring script from the best run as well as used the current environment settings for the deployment. 
 
@@ -129,7 +133,7 @@ I used the code below to deploy the model:
 
 
 **Python**: 
-I leveraged the *requests* package to POST two JSONs to the service endpoint.
+I POST two JSONs payload to the service endpoint.
 
 *Figure 11: AutoML Python Interaction*
 ![automl-deployment_test_python](Screenshots/Fig6.png)
