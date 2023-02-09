@@ -26,17 +26,18 @@ Attribute Information:
 3. A3: continuous.
 4. A4: u, y, l, t.
 5. A5: g, p, gg.
-A6: c, d, cc, i, j, k, m, r, q, w, x, e, aa, ff.
-A7: v, h, bb, j, n, z, dd, ff, o.
-A8: continuous.
-A9: t, f.
-A10: t, f.
-A11: continuous.
-A12: t, f.
-A13: g, p, s.
-A14: continuous.
-A15: continuous.
-A16: +,- (class attribute)
+6. A6: c, d, cc, i, j, k, m, r, q, w, x, e, aa, ff.
+7. A7: v, h, bb, j, n, z, dd, ff, o.
+8. A8: continuous.
+9. A9: t, f.
+10. A10: t, f.
+11. A11: continuous.
+12. A12: t, f.
+13. A13: g, p, s.
+14. A14: continuous.
+15. A15: continuous.
+16. A16: +,- (class attribute){+: approved, -: rejected}
+
 Data has 296 approved and 357 rejected applications.
 
 This dataset is public and available for research. Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
@@ -83,19 +84,19 @@ case I have simply used upsampling but I could also leverage techniques such as 
 
 
 *Figure 2: AutoML Best Model*
-![automl-best_model_1](images/automl-best_model_1.png)
+![automl-best_model_1](Screenshots/Fig2.png)
 
 *Figure 3: AutoML Best Model Parameters*
-![automl-best_model_1](images/automl-best_model_parameters.png)
+![automl-best_model_1](Screenshots/Fig3.png)
 
 *Figure 4: AutoML Model List*
-![automl-best_model_1](images/automl-best_model_2.png)
+![automl-best_model_1](Screenshots/Fig4.png)
 
 *Figure 5: AutoML Model RunDetails*
-![automl-run_details](images/automl-run_details.png)
+![automl-run_details](Screenshots/Fig5.png)
 
 *Figure 6: AutoML Model Runs*
-![automl-details_1](images/automl-details_1.png)
+![automl-details_1](Screenshots/Fig6.png)
 
 ## Hyperparameter Tuning
 
@@ -127,16 +128,16 @@ The best performing Logistic Regression Model came in with an accuracy of 98.57%
 beat the AutoML XGBoost Classifier model. 
 
 *Figure 7: HyperDrive Model*
-![hyperdrive-details_3](images/hyperdrive-details_3.png)
+![hyperdrive-details_3](Screenshots/Fig7.png)
 
 *Figure 8: HyperDrive Model RunDetails*
-![hyperdrive-run_details](images/hyperdrive-run_details.png)
+![hyperdrive-run_details](Screenshots/Fig8.png)
 
 *Figure 9: HyperDrive Models Accuracy*
-![hyperdrive-details_1](images/hyperdrive-details_1.png)
+![hyperdrive-details_1](Screenshots/Fig9.png)
 
 *Figure 10: HyperDrive Models Parameter Tuning*
-![hyperdrive-details_2](images/hyperdrive-details_2.png)
+![hyperdrive-details_2](Screenshots/Fig10.png)
 
 ## Model Deployment
 
@@ -146,7 +147,7 @@ I obtained the scoring script from the best run as well as used the current envi
 I used the code below to deploy the model:
 
 *Figure 11: AutoML Model Deployment*
-![automl-deployment_success](images/automl-deployment_success.png)
+![automl-deployment_success](Screenshots/Fig11.png)
 
 I tested the working endpoint via two methods:
 
@@ -154,23 +155,23 @@ I tested the working endpoint via two methods:
 I leveraged the *requests* package to POST two JSONs to the service endpoint.
 
 *Figure 12: AutoML Python Interaction*
-![automl-deployment_test_python](images/automl-deployment_test_python.png)
+![automl-deployment_test_python](Screenshots/Fig12.png)
 
 
 **Postman**: I posted a JSON to the service endpoint using the Postman desktop application.
 
 *Figure 13: AutoML Postman Interaction*
-![automl-deployment_postman](images/automl-deployment_postman.png)
+![automl-deployment_postman](Screenshots/Fig13.png)
 
 I also was able to see these interactions in the logs:
 
 *Figure 14: AutoML Deployment Logs*
-![automl-deployment_logs](images/automl-deployment_logs.png)
+![automl-deployment_logs](Screenshots/Fig14.png)
 
 Once I had completed my testing I proceeded to delete the service.
 
 *Figure 15: AutoML Deployment Deletion*
-![automl-service_deletion](images/automl-service_deletion.png)
+![automl-service_deletion](Screenshots/Fig15.png)
 
 ## Screen Recording
 
