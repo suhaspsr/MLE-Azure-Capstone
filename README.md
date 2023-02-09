@@ -1,11 +1,11 @@
 # Capstone Project - Azure Machine Learning Engineer
 
 ## Introduction
-In this project, I train two machine learning models to perform a binary classification and compare their performance.
-1. Automated ML (denoted as AutoML from now on) model: Trained using AutoML.
+In this capstone, I have trained two ml models to perform a classification task and compare their accuracies.
+1. AutoML model: Trained using AutoML.
 2. HyperDrive model: Logistic Regression with hyperparameters tuned using HyperDrive.
 
-I demonstrate the ability to leverage an external dataset in my workspace, train the models using the 
+I have used an external dataset in my workspace, trained the models using the 
 different tools available in the AzureML framework as well as to deploy the best performing model as a web service.
 
 
@@ -13,44 +13,33 @@ different tools available in the AzureML framework as well as to deploy the best
 
 ### Overview
 
-The Wine Quality datasets have been taken from the UCI Machine Learning Repository. The data is broken up into two 
-individual datasets, one for red wines and the other for white wines. The red wine dataset contains 1599 examples while
-the white wine dataset has 4898 examples. Both datasets have the same 12 attributes as follows:
+The credit approval data is taken from UCI data repository. We will use the data to train the model and predict to approve credit or not.
 
-Attribute information:
+All attribute names and values have been changed to meaningless symbols to protect confidentiality of the data.
 
-For more information, read [Cortez et al., 2009].
+This dataset is interesting because there is a good mix of attributes -- continuous, nominal with small numbers of values, and nominal with larger numbers of values. There are also a few missing values.
 
-Input variables (based on physicochemical tests):
-1. fixed acidity: numeric
-2. volatile acidity: numeric
-3. citric acid: numeric
-4. residual sugar: numeric
-5. chlorides: numeric
-6. free sulfur dioxide: numeric
-7. total sulfur dioxide: numeric
-8. density: numeric
-9. pH: numeric
-10. sulphates: numeric
-11. alcohol: numeric
-12. quality: numeric
+Attribute Information:
 
-There are no missing values. I combine these datasets into one dataset and use the resulting dataset to for 
-modeling in Azure. One model trained is a Logistic Regression whose hyperparameters are tuned by HyperDrive. The other 
-model is trained is using AutoML. The goal for both models is to predict whether a wine is red or white. 
+A1: b, a.
+A2: continuous.
+A3: continuous.
+A4: u, y, l, t.
+A5: g, p, gg.
+A6: c, d, cc, i, j, k, m, r, q, w, x, e, aa, ff.
+A7: v, h, bb, j, n, z, dd, ff, o.
+A8: continuous.
+A9: t, f.
+A10: t, f.
+A11: continuous.
+A12: t, f.
+A13: g, p, s.
+A14: continuous.
+A15: continuous.
+A16: +,- (class attribute)
+Data has 296 approved and 357 rejected applications.
 
-Response variable: (y)
-13. y: (0: white, 1: red)
-
-This dataset is public and available for research. I have included the citation below as requested:
-
-P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. 
-Modeling wine preferences by data mining from physicochemical properties.
-In Decision Support Systems, Elsevier, 47(4):547-553. ISSN: 0167-9236.
-
-Available at: [@Elsevier] http://dx.doi.org/10.1016/j.dss.2009.05.016
-            [Pre-press (pdf)] http://www3.dsi.uminho.pt/pcortez/winequality09.pdf
-            [bib] http://www3.dsi.uminho.pt/pcortez/dss09.bib
+This dataset is public and available for research. Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
 
 
 ### Access
@@ -59,7 +48,7 @@ The wine quality datasets live on the UCI Machine Learning Repository. I read th
 *read_csv* function and then store them on Azure blob storage for consumption.
 
 *Figure 1: Wine Quality Data*
-![data](images/data.png)
+![data](Screenshots/Fig1.png)
 
 ## Automated ML
 
