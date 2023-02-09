@@ -1,0 +1,4 @@
+# python 3.8
+pandas==1.5.3
+ipython==8.8.0
+azure-core==1.26.2
