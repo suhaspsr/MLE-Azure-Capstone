@@ -132,6 +132,9 @@ I used the code below to deploy the model:
 *Figure 11: AutoML Model Being Active*
 ![automl-model-active](Screenshots/Fig16.png)
 
+*Figure 12: AutoML Model Registered*
+![automl-model-registered](Screenshots/Fig15.png)
+
 **Python**: 
 I POST two JSONs payload to the service endpoint.
 
