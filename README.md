@@ -90,10 +90,10 @@ case I have simply used upsampling but I could also leverage techniques such as 
 ![automl-best_model_1](Screenshots/Fig3.png)
 
 *Figure 4: AutoML Model List*
-![automl-best_model_1](Screenshots/Fig14.png)
+![automl-best_model_1](Screenshots/Fig4.png)
 
 *Figure 5: AutoML Model RunDetails*
-![automl-run_details](Screenshots/Fig5.png)
+![automl-run_details](Screenshots/Fig14.png)
 
 *Figure 6: AutoML Model Runs*
 ![automl-details_1](Screenshots/Fig6.png)
