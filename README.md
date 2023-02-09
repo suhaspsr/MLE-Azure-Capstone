@@ -42,12 +42,6 @@ Data has 296 approved and 357 rejected applications.
 
 This dataset is public and available for research. Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
 
-
-### Access
-
-The wine quality datasets live on the UCI Machine Learning Repository. I read them as a *pandas DataFrame* using the  
-*read_csv* function and then store them on Azure blob storage for consumption.
-
 *Figure 1: Wine Quality Data*
 ![data](Screenshots/Fig1.png)
 
@@ -55,32 +49,22 @@ The wine quality datasets live on the UCI Machine Learning Repository. I read th
 
 I set the following AutoML parameters: 
 
-* *experiment_timeout_minutes*: 30
-* *enable_early_stopping*: True    
-* *primary_metric*: 'accuracy'
-* *n_cross_validations*:5
-* *iterations*: 50
-* *max_concurrent_iterations*: 4
+* The experiment_timeout_minutes (20 mins), iterations (50) and enable_early_stopping to reduce time taken for model training.
+* Enabling early stopping allows the training process to conclude if there is no considerable improvement to the primary_metric.
+* cross_validations: 5 is set to prevent overfitting.
+* The max_concurrent_iterations: 4 is used to allow jobs to be run in parallel on each node.
 
-The *experiment_timeout_minutes* (30 mins), *iterations* (50) and *enable_early_stopping* (True) are set to reduce time 
-taken for model training. Enabling early stopping allows the training process to conclude if there is no considerable 
-improvement to the *primary_metric* (accuracy). *n_cross_validations* is set to 5 to ensure Bias vs Variance tradeoff
-and prevent overfitting.The *max_concurrent_iterations* (4) is set as we are running on compute Standard_D2_V2 which has 
-4 nodes. This allows 4 jobs to be run in parallel on each node.
 
 ### Results
 
-The best performing model from AutoML was the XGBoost Classifier with a StandardScaler. The accuracy of this model was
-99.8%. This accuracy is already incredibly high however I could potentially improve it further by modifying the 
-AutoML configuration settings and trying the steps below.
+The best performing model from AutoML was the Voting Ensumble method. The accuracy of this model was
+90.24%. 
+
 * Disable early stopping, increase the number of cross validations and max_iterations allowing AutoML to evaluate more 
 models and avoid overfitting.
-* Employ more advanced data balancing techniques to ensure both target classes have the same number of examples. In this 
-case I have simply used upsampling but I could also leverage techniques such as SMOTE sampling.
+
 * Change my target metric to Recall, Precision, F-Score,... depending on considerations of confusion matrix preferences.
 * Enable featurization to generate custom features.
-* Provide test_data to the AutoML configuration by enabling the parameter.
-* Enable deep learning which though takes longer to compute might show improvement.
 
 
 *Figure 2: AutoML Best Model*
@@ -102,12 +86,12 @@ I used a Logistic Regression Classifier from Sklearn. My predictive task was bin
 appropriate. 
 
 I chose to use tune 3 hyperparameters:
+
 * *C*: Inverse of regularization strength; must be a positive float. Like in support vector machines, 
 smaller values specify stronger regularization.
 * *max_iter*: Maximum number of iterations taken for the solvers to converge.
 * *solver*: Algorithm to use in the optimization problem.
 
-Other possible hyperparameters were solver specific and were thus omitted. 
  
 I used a RandomParameterSampling instead of an exhaustive GridSearch to reduce compute resources and time. This approach 
 gives close to as good hyperparameters as a GridSearch with considerably less resources and time consumed. 
@@ -117,13 +101,10 @@ metric every 2 iteration and if the value falls outside top 10% of the primary m
 This saves time continuing to evaluate hyperparameters that don't show promise of improving our target metric. It prevents 
 experiments from running for a long time and using up resources.
 
-I chose the primary metric as Accuracy and to maximize it as part of the Hyperdrive run. I set the max total runs as 15 
-to avoid log run times as well as the *max_concurrent_runs* to 4 as I am running this experiment on Standard_D2_V2 which 
-has 4 nodes. This allows 4 jobs to be run in parallel on each node.
+I chose the primary metric as Accuracy and to maximize it as part of the Hyperdrive run. 
 
 ### Results
-The best performing Logistic Regression Model came in with an accuracy of 98.57% which was great however it did not 
-beat the AutoML XGBoost Classifier model. 
+The best performing Logistic Regression Model came in with an accuracy of 83.9% which has 6% lower accuracy compared to AutoML model.
 
 *Figure 7: HyperDrive Model*
 ![hyperdrive-details_3](Screenshots/Fig10.png)
@@ -138,7 +119,7 @@ beat the AutoML XGBoost Classifier model.
 
 ## Model Deployment
 
-As the XGBoost Classifier AutoML model was the best performing model. I proceeded to deploy this model in Azure.
+As the AutoML classification model out performed tunned Logistical Regression model, I proceeded to deploy this model in Azure.
 I obtained the scoring script from the best run as well as used the current environment settings for the deployment. 
 
 I used the code below to deploy the model:
@@ -146,7 +127,6 @@ I used the code below to deploy the model:
 *Figure 10: AutoML Model Deployment*
 ![automl-deployment_success](Screenshots/Fig5.png)
 
-I tested the working endpoint via two methods:
 
 **Python**: 
 I leveraged the *requests* package to POST two JSONs to the service endpoint.
@@ -164,5 +144,4 @@ Once I had completed my testing I proceeded to delete the service.
 ![automl-service_deletion](Screenshots/Fig8.png)
 
 ## Screen Recording
-
-[https://youtu.be/fUItv24ryC4](https://youtu.be/fUItv24ryC4)
+https://youtu.be/nSsgSQohesA
