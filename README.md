@@ -118,8 +118,6 @@ The best performing Logistic Regression Model came in with an accuracy of 83.9% 
 *Figure 9: HyperDrive Models Accuracy*
 ![hyperdrive-details_1](Screenshots/Fig13.png)
 
-
-
 ## Model Deployment
 
 The AutoML VotingEnsemble method has better accuracy at 90.23% compared to hyperparameter tunned Logistic Regression model with 84%. AutoML has 6% better performance than the tunned LR model. 
@@ -146,6 +144,18 @@ Once I had completed my testing I proceeded to delete the service.
 
 *Figure 13: AutoML Deployment Deletion*
 ![automl-service_deletion](Screenshots/Fig8.png)
+
+##Future Model Improvements
+
+To improve the future models, We could identify predictions that has been wrongly classified by the best model and find pattrens and feature mainly contributing to that and do feature engineering to fix it.
+
+We could use sampling methods and weighted loss fuction to deal with imbalanced dataset.
+
+For HyperDrive algorithm, we can use top 3 models from AutoML and use hyperdrive to fine tune that model to outperform AutoML.
+We could use different sampling method like grid search to tune parameters.  
+Deep Learning algorithms can be used for complex problems.
+
+We can use different performance metric other than accuracy like precison, recall or AUC to optimize for.
 
 ## Screen Recording
 https://youtu.be/nSsgSQohesA
