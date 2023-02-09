@@ -126,17 +126,15 @@ The best performing Logistic Regression Model came in with an accuracy of 98.57%
 beat the AutoML XGBoost Classifier model. 
 
 *Figure 7: HyperDrive Model*
-![hyperdrive-details_3](Screenshots/Fig7.png)
+![hyperdrive-details_3](Screenshots/Fig10.png)
 
 *Figure 8: HyperDrive Model RunDetails*
 ![hyperdrive-run_details](Screenshots/Fig12.png)
-![hyperdrive-run_details](Screenshots/Fig13.png)
 
 *Figure 9: HyperDrive Models Accuracy*
-![hyperdrive-details_1](Screenshots/Fig9.png)
+![hyperdrive-details_1](Screenshots/Fig13.png)
 
-*Figure 10: HyperDrive Models Parameter Tuning*
-![hyperdrive-details_2](Screenshots/Fig10.png)
+
 
 ## Model Deployment
 
@@ -145,7 +143,7 @@ I obtained the scoring script from the best run as well as used the current envi
 
 I used the code below to deploy the model:
 
-*Figure 11: AutoML Model Deployment*
+*Figure 10: AutoML Model Deployment*
 ![automl-deployment_success](Screenshots/Fig5.png)
 
 I tested the working endpoint via two methods:
@@ -153,16 +151,16 @@ I tested the working endpoint via two methods:
 **Python**: 
 I leveraged the *requests* package to POST two JSONs to the service endpoint.
 
-*Figure 12: AutoML Python Interaction*
+*Figure 11: AutoML Python Interaction*
 ![automl-deployment_test_python](Screenshots/Fig6.png)
 ![automl-deployment_test_python](Screenshots/Fig7.png)
 
-*Figure 13: AutoML Deployment Logs*
+*Figure 12: AutoML Deployment Logs*
 ![automl-deployment_logs](Screenshots/Fig8.png)
 
 Once I had completed my testing I proceeded to delete the service.
 
-*Figure 14: AutoML Deployment Deletion*
+*Figure 13: AutoML Deployment Deletion*
 ![automl-service_deletion](Screenshots/Fig8.png)
 
 ## Screen Recording
